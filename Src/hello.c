@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/socket.h>
 #include <Inc/hello.h>
+#include <mysql.h>
 
 int hello(){
     int d;
