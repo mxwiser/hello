@@ -12,7 +12,7 @@ const char *user="my_data";
 const char *passwd="asd1257.";
 const char *db="my_data";
 int retnum=0;
-
+MYSQL_ROW row;
 void connectdb()
  {
      mysql=mysql_init(NULL);
@@ -27,10 +27,13 @@ void connectdb()
      {
              mysql_real_query(mysql,querystat,strlen(querystat));
              res=mysql_store_result(mysql);
-             retnum = mysql_num_rows(res);
-             printf("mapping rows %d\n",retnum);
+             row=mysql_fetch_row(res);
+             printf("mapping rows %s\n",row[0]);
+             row=mysql_fetch_row(res);
+             printf("mapping rows %s\n",row[0]);
              mysql_free_result(res);
              usleep(1000);
+             break;
      }
      
 
